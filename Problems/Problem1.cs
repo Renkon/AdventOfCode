@@ -19,15 +19,7 @@
 
             for (int i = 0; i < numbers.Count - stepSize; i++)
             {
-                int sumPrevious = 0;
-                int sumNext = 0;
-                for (int j = 0; j < stepSize; j++)
-                {
-                    sumPrevious += numbers[i + j];
-                    sumNext += numbers[i + j + 1];
-                }
-
-                if (sumPrevious < sumNext)
+                if (numbers[i] < numbers[i + stepSize])
                 {
                     numberOfIncreases++;
                 }
