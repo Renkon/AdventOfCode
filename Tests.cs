@@ -67,5 +67,19 @@ namespace AdventOfCode
         {
             Assert.AreEqual(1702, new Problem1().DoPartB());
         }
+
+        [TestMethod]
+        [TestCategory(nameof(Problem2))]
+        public void TestProblem2PartA()
+        {
+            Assert.AreEqual(1250395, new Problem2().DoPartA());
+        }
+
+        [TestMethod]
+        [TestCategory(nameof(Problem2))]
+        public void TestProblem2PartB()
+        {
+            Assert.AreEqual(1451210346, new Problem2().DoPartB());
+        }
     }
 }
