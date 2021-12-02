@@ -14,7 +14,7 @@ namespace AdventOfCode
         public static IEnumerable<int> StringArrayToIntArray(IEnumerable<string> strArray)
             => strArray.Where(s => !string.IsNullOrEmpty(s)).Select(int.Parse);
 
-        public static (object, long) DoAndMeasure(Func<object> func)
+        public static (dynamic, long) DoAndMeasure(Func<dynamic> func)
         {
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();

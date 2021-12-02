@@ -11,7 +11,7 @@ namespace AdventOfCode
         public void TestDoAndMeasure()
         {
             var expectedValue = 42;
-            Func<object> method = () => expectedValue;
+            var method = (Func<dynamic>)(() => expectedValue);
             var (result, ms) = Utils.DoAndMeasure(method);
 
             Assert.AreEqual(expectedValue, result);

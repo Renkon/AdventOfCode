@@ -15,17 +15,9 @@
 
         private int CountIncreasesByStep(IList<int> numbers, int stepSize)
         {
-            int numberOfIncreases = 0;
-
-            for (int i = 0; i < numbers.Count - stepSize; i++)
-            {
-                if (numbers[i] < numbers[i + stepSize])
-                {
-                    numberOfIncreases++;
-                }
-            }
-
-            return numberOfIncreases;
+            return numbers.Take(new Range(0, numbers.Count - stepSize))
+                .Select((n, i) => n - numbers[i + stepSize])
+                .Count(n => n < 0);
         }
 
         private IList<int> GetListOfIntegers()

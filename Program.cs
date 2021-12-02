@@ -1,7 +1,7 @@
 ﻿using AdventOfCode;
 using System.Reflection;
 
-foreach (var type in Assembly.GetExecutingAssembly().GetTypes().Where(t => t.FullName!.StartsWith("AdventOfCode.Problems.Problem")))
+foreach (var type in Assembly.GetExecutingAssembly().GetExportedTypes().Where(t => t.FullName!.StartsWith("AdventOfCode.Problems.Problem")))
 {
     var problem = Activator.CreateInstance(type) as dynamic;
 
