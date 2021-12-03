@@ -16,9 +16,6 @@ namespace AdventOfCode.Problems
                 epsilonBuilder.Append(mapper.MinBy(kv => kv.Count).Key);
             }
 
-            var gamma = gammaBuilder.ToString();
-            var epsilon = epsilonBuilder.ToString();
-
             return Convert.ToInt32(gammaBuilder.ToString(), 2) * Convert.ToInt32(epsilonBuilder.ToString(), 2);
         }
 
