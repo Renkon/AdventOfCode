@@ -36,7 +36,7 @@ namespace AdventOfCode
         [TestCategory(nameof(Utils))]
         public void TestStringArrayWithInvalidsToIntArray()
         {
-            InnerTestStringArrayToIntArray(new List<string> { null, "1", "2", "", "3" }, new List<int> { 1, 2, 3 });
+            InnerTestStringArrayToIntArray(new List<string> { null!, "1", "2", "", "3" }, new List<int> { 1, 2, 3 });
         }
 
         [TestMethod]
@@ -94,6 +94,20 @@ namespace AdventOfCode
         public void TestProblem3PartB()
         {
             Assert.AreEqual(6677951, new Problem3().DoPartB());
+        }
+
+        [TestMethod]
+        [TestCategory(nameof(Problem4))]
+        public void TestProblem4PartA()
+        {
+            Assert.AreEqual(23177, new Problem4().DoPartA());
+        }
+
+        [TestMethod]
+        [TestCategory(nameof(Problem4))]
+        public void TestProblem4PartB()
+        {
+            Assert.AreEqual(6804, new Problem4().DoPartB());
         }
     }
 }
