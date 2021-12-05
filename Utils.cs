@@ -23,5 +23,15 @@ namespace AdventOfCode
 
             return (result, stopwatch.ElapsedMilliseconds);
         }
+
+        public static IEnumerable<int> GetRangeBetween(int start, int end)
+        {
+            if (start <= end)
+            {
+                return Enumerable.Range(start, end - start + 1);
+            }
+
+            return Enumerable.Range(end, start - end + 1).Reverse();
+        }
     }
 }
