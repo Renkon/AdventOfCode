@@ -41,6 +41,30 @@ namespace AdventOfCode
 
         [TestMethod]
         [TestCategory(nameof(Utils))]
+        public void TestGetRangeBetweenWithNoInterval()
+        {
+            var range = Utils.GetRangeBetween(4, 4).ToList();
+            CollectionAssert.AreEqual(new List<int> { 4 }, range);
+        }
+
+        [TestMethod]
+        [TestCategory(nameof(Utils))]
+        public void TestGetRangeBetweenWithInterval()
+        {
+            var range = Utils.GetRangeBetween(4, 8).ToList();
+            CollectionAssert.AreEqual(new List<int> { 4, 5, 6, 7, 8 }, range);
+        }
+
+        [TestMethod]
+        [TestCategory(nameof(Utils))]
+        public void TestGetRangeBetweenWithReverseInterval()
+        {
+            var range = Utils.GetRangeBetween(8, 4).ToList();
+            CollectionAssert.AreEqual(new List<int> { 8, 7, 6, 5, 4 }, range);
+        }
+
+        [TestMethod]
+        [TestCategory(nameof(Utils))]
         public void TestInputToStringArray()
         {
             var expectedOut = new List<string> { "test", "load", "file" };
@@ -122,6 +146,20 @@ namespace AdventOfCode
         public void TestProblem5PartB()
         {
             Assert.AreEqual(21104, new Problem5().DoPartB());
+        }
+
+        [TestMethod]
+        [TestCategory(nameof(Problem6))]
+        public void TestProblem6PartA()
+        {
+            Assert.AreEqual(345387, new Problem6().DoPartA());
+        }
+
+        [TestMethod]
+        [TestCategory(nameof(Problem6))]
+        public void TestProblem6PartB()
+        {
+            Assert.AreEqual(1574445493136, new Problem6().DoPartB());
         }
     }
 }
