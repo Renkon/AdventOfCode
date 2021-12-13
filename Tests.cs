@@ -245,5 +245,25 @@ namespace AdventOfCode
         {
             Assert.AreEqual(146553, new Problem12().DoPartB());
         }
+
+        [TestMethod]
+        [TestCategory(nameof(Problem13))]
+        public void TestProblem13PartA()
+        {
+            Assert.AreEqual(802, new Problem13().DoPartA());
+        }
+
+        [TestMethod]
+        [TestCategory(nameof(Problem13))]
+        public void TestProblem13PartB()
+        {
+            var expectedStr = "###..#..#.#..#.####.####..##..#..#.###." + Environment.NewLine +
+                              "#..#.#.#..#..#.#.......#.#..#.#..#.#..#" + Environment.NewLine +
+                              "#..#.##...####.###....#..#....#..#.###." + Environment.NewLine +
+                              "###..#.#..#..#.#.....#...#.##.#..#.#..#" + Environment.NewLine +
+                              "#.#..#.#..#..#.#....#....#..#.#..#.#..#" + Environment.NewLine +
+                              "#..#.#..#.#..#.#....####..###..##..###." + Environment.NewLine;
+            Assert.AreEqual(expectedStr, new Problem13().DoPartB());
+        }
     }
 }
