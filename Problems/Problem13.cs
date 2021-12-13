@@ -6,14 +6,7 @@ namespace AdventOfCode.Problems
     {
         public long DoPartA()
         {
-            var input = Utils.InputToStringArray("13")
-                .Where(s => !string.IsNullOrEmpty(s));
-
-            var foldOperations = input.Where(s => s.StartsWith("fold"))
-                .Select(s => s.Replace("fold along ", ""));
-            var points = input.Where(s => !s.StartsWith("fold"))
-                .Select(s => new Point(s));
-            var map = new Map(points);
+            var (map, foldOperations) = GenerateMapAndOperations();
 
             map = map.Fold(foldOperations.ElementAt(0));
 
@@ -22,14 +15,7 @@ namespace AdventOfCode.Problems
 
         public string DoPartB()
         {
-            var input = Utils.InputToStringArray("13")
-                .Where(s => !string.IsNullOrEmpty(s));
-
-            var foldOperations = input.Where(s => s.StartsWith("fold"))
-                .Select(s => s.Replace("fold along ", ""));
-            var points = input.Where(s => !s.StartsWith("fold"))
-                .Select(s => new Point(s));
-            var map = new Map(points);
+            var (map, foldOperations) = GenerateMapAndOperations();
 
             foreach (var fold in foldOperations)
             {
@@ -37,6 +23,19 @@ namespace AdventOfCode.Problems
             }
 
             return map.GetVisualization();
+        }
+
+        private (Map, IEnumerable<string>)  GenerateMapAndOperations()
+        {
+            var input = Utils.InputToStringArray("13")
+                .Where(s => !string.IsNullOrEmpty(s));
+
+            var foldOperations = input.Where(s => s.StartsWith("fold"))
+                .Select(s => s.Replace("fold along ", ""));
+            var points = input.Where(s => !s.StartsWith("fold"))
+                .Select(s => new Point(s));
+
+            return (new Map(points), foldOperations);
         }
     }
 }
