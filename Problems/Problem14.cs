@@ -33,7 +33,7 @@ namespace AdventOfCode.Problems
                 Increment(charMap, kv.Key[1], kv.Value);
             }
 
-            return charMap.Select(kv => (kv.Value + (kv.Value % 2UL == 0UL ? 0UL : 1UL)) / 2UL);
+            return charMap.Select(kv => (ulong) Math.Ceiling(kv.Value / 2.0));
         }
 
         private Dictionary<string, ulong> ProcessSteps(int steps, string template, Dictionary<string, string> rules)
