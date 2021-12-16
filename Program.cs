@@ -2,7 +2,7 @@
 using Pastel;
 using System.Reflection;
 
-foreach (var type in Assembly.GetExecutingAssembly().GetExportedTypes().Where(t => t.FullName!.StartsWith("AdventOfCode.Problems.Problem")))
+foreach (var type in Assembly.GetExecutingAssembly().GetExportedTypes().Where(t => t.FullName!.StartsWith("AdventOfCode.Problems.Problem")).OrderBy(t => int.Parse(t.Name.Substring(7))))
 {
     var problem = Activator.CreateInstance(type) as dynamic;
     var (partA, elapsedA) = Utils.DoAndMeasure(() => problem!.DoPartA());
