@@ -1,5 +1,4 @@
 ﻿using AdventOfCode.Problems.Model.Problem16;
-using System.Text;
 
 namespace AdventOfCode.Problems
 {
